@@ -26,7 +26,7 @@
 
     <script>
         // 讀取 money.csv (假設檔案放在同一個目錄)
-        Papa.parse("C:/Users/Lab114/source/repos/SMA/money.csv", {
+        Papa.parse("money.csv", {
             download: true,
             header: true,
             dynamicTyping: true,
@@ -56,12 +56,20 @@
                 data: {
                     labels: data.map(d => `S:${d.ShortMA}/L:${d.LongMA}`),
                     datasets: [{
-                        label: '報酬率 (%)',
-                        data: data.map(d => d.ReturnRate),
-                        backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                        label: '最終資產 ($)', // 修改標籤名稱
+                        data: data.map(d => d.FinalValue), // 將數據來源改為 FinalValue
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)' // 改成綠色系看起來更像資產
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false }
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false // 資產通常數字很大，不一定要從 0 開始
+                        }
+                    }
+                }
             });
         }
     </script>
