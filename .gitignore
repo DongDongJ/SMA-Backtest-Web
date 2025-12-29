@@ -1,0 +1,13 @@
+# 編譯產生的檔案
+*.o
+*.exe
+server
+SMA
+
+# CSV 輸出檔案
+money.csv
+
+# IDE 設定
+.vscode/
+.idea/
+*.swp
