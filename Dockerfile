@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # 編譯 C++ 程式
-RUN g++ -std=c++11 -pthread server.cpp -o server
+RUN g++ -std=c++11 -pthread SMA_web.cpp -o server
 
 # 暴露端口（Render 會自動設定 PORT 環境變數）
 EXPOSE 10000
